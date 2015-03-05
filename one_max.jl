@@ -37,11 +37,6 @@ function crossover!(population, prob)
             parents = rand(1:n, 2,)
             points = rand(1:l, 2,)
 
-            #println("Parents")
-            #println(parents)
-            #println("Points")
-            #println(points)
-
             if points[1] < points[2]
                 p1 = points[1]
                 p2 = points[2]
@@ -60,10 +55,6 @@ function mutation!(population, prob)
     for i=1:n
         if rand() < prob
             point = rand(1:l)
-            #println("indv")
-            #println(i)
-            #println("point")
-            #println(point)
             population[i, point] = population[i, point] $ 1
         end
     end
@@ -91,24 +82,10 @@ while !(l in fs)
     append!(totals, [sum(fs)])
     append!(maxs, [maximum(fs)])
     
-    #println("Initial")
-    #println(population)
-    #println("Selection")
-    
     population = selection(population, fs)
-    
-    #println(population)
-    #println("Crossover")
-    
     crossover!(population, c_prob)
-    
-    #println(population)
-    #println("Mutation")
-    
     mutation!(population, m_prob)
     
-    #println(population)
-    #println()
     fs = get_fitness_scores(population)
 end
 
