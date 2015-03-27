@@ -97,5 +97,5 @@ plot(maxs, "x")
 title(string("Population Size: ", n, " Length: ", l, " Crossover Prob: ", c_prob, " Mutation Prob: ", m_prob))
 xlabel("Iteration")
 ylabel("Total Fitness")
-savefig("solution.png")
+savefig("one_max_solution.png")
     
